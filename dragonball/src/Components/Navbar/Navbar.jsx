@@ -1,14 +1,25 @@
-import 'Navbar.scss'
 
-export default function Navbar(){
-    return(
-        <div className='navbar'>
-            <ul className='navbar__list'>
-                <li className='navbar__list__item'><a href='#!'>Início</a></li>
-                <li className='navbar__list__item'><a href='#!'>Criar</a></li>
-                <li className='navbar__list__item'><a href='#!'>Deletar Tudo</a></li>
-                <li className='navbar__list__item'><a href='#!'>Sobre</a></li>
-            </ul>
-        </div>
+import Logo from './logo.png'
+import * as S from './styled'
+// importa tudo como S
+export default function Navbar() {
+    return (
+        <S.Navbar>
+            <S.Img src={Logo} alt='Dragon Ball' />
+            <S.List>
+                <S.ListItem>
+                    < S.LinkedPage to='/'>Inicio</S.LinkedPage>
+                </S.ListItem>
+                <S.ListItem>
+                    <S.LinkedPage to='/create'>Criar</S.LinkedPage>
+                </S.ListItem>
+                <S.ListItem>
+                    <S.LinkedPage to='/deleteall'>Deletar tudo</S.LinkedPage>
+                </S.ListItem>
+                <S.ListItem>
+                    <S.LinkedPage to='/about'>Sobre</S.LinkedPage>
+                </S.ListItem>
+            </S.List>
+        </S.Navbar>
     )
 }
