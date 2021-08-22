@@ -1,5 +1,5 @@
-export default function ReadAll(){
-    return(
-        <h2>Onde vamos ler os personagens</h2>
-    )
+export default function ReadAll() {
+  return (
+    <h2>Aqui vamos listar todos os personagens cadastrados</h2>
+  )
 }

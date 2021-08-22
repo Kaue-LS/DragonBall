@@ -1,8 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width:80%;
-  margin:0 auto;
+  max-width: 60%;
+  margin: 0 auto;
+
+  @media(max-width: 580px) {
+    max-width: 80%;
+  }
+
+  @media(max-width: 430px) {
+    max-width: 90%;
+  }
 `;
-// as aspas sao o template string
-// tem o nome de todas as tags que existe no html
