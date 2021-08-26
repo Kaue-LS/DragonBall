@@ -4,5 +4,5 @@ export const Paragraph = styled.p`
   font-size: 1.2em;
   line-height: 2.5rem;
   text-align: justify;
-  padding: 0.5rem 0 1rem 0;
+  padding: 1rem 0 1rem 0;
 `;

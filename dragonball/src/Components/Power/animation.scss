@@ -1,0 +1,9 @@
+.fill{
+    background: linear-gradient(90deg,blue,yellow )no-repeat;
+    height: 1.7rem;
+    border-radius: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width 4s ease-in-out;
+}

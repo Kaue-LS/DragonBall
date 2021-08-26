@@ -40,3 +40,4 @@ export const ButtonCancel =styled.button`
         background-color: #006400;
     }
 `;
+

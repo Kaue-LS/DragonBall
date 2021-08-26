@@ -34,7 +34,7 @@ export default function Create() {
     const result = await request.json();
     const id = result._id;
 
-    history.push(`/view/${id}`,item);
+    history.push(`/view/${id}`);
 
   }
 

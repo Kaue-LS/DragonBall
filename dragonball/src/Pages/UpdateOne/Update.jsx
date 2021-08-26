@@ -3,15 +3,17 @@ import { Title } from '../../Components/Title/styled';
 import { useState } from 'react';
 import { Api } from '../../Api/Api';
 import { useHistory } from 'react-router-dom';
+import Loading from '../../Components/Loading/Loading'
+export default function UpdateOne(props) {
+  const state = props.location.state;
 
-export default function Create() {
-
-  const [name, setName] = useState('');
-  const [url, setUrl] = useState('');
-  const [raca, setRaca] = useState('');
-  const [saga, setSaga] = useState('');
-  const [poder, setPoder] = useState(0);
-
+  const [name, setName] = useState(state.name);
+  const [url, setUrl] = useState(state.url);
+  const [raca, setRaca] = useState(state.raca);
+  const [saga, setSaga] = useState(state.saga);
+  const [poder, setPoder] = useState(state.poder);
+// quando for true o loading vai aparecer
+  const [loading,setLoading] = useState(false)
   const history = useHistory();
 
   const item = {
@@ -20,38 +22,45 @@ export default function Create() {
     raca: raca,
     saga: saga,
     poder: poder
-  }
+  };
+
 
   const submitHandler = async event => {
 
+    setLoading(true);
     event.preventDefault();
 
-    const request = await Api.buildApiPostRequest(Api.createUrl(), item)
-    .catch(e => {
-      console.error('Erro ao tentar adicionar o item ao banco: ', e);
+    const request = await Api.buildApiPutRequest(
+      Api.updateUrl(state._id),
+      item
+    ).catch(e => {
+      console.error('Erro ao tentar modificar o item no banco: ', e);
     })
 
     const result = await request.json();
     const id = result._id;
-
-    history.push(`/view/${id}`,item);
-
+    history.push(`/view/${id}`, item);
   }
 
   return (
     <>
-      <Title>Criar um novo personagem</Title>
+    {loading===true ?(
+            <Loading></Loading>
+    ):(
+      <>
+      <Title>Atualizar personagem</Title>
 
       <S.Form onSubmit={submitHandler}>
 
         <S.Label htmlFor="name">Nome</S.Label>
-        <S.Input id="name" type="text" onChange={e => setName(e.target.value)} required></S.Input>
+        {/* onchange serve para que qualquer alteração feita ele ja armazena no setName */}
+        <S.Input value={name} id="name" type="text" onChange={e => setName(e.target.value)} required></S.Input>
 
         <S.Label htmlFor="url">URL da Imagem</S.Label>
-        <S.Input id="url" type="text" onChange={e => setUrl(e.target.value)} required></S.Input>
+        <S.Input value={url} id="url" type="text" onChange={e => setUrl(e.target.value)} required></S.Input>
 
         <S.Label htmlFor="raca">Raça</S.Label>
-        <S.Select id="raca" onChange={e => setRaca(e.target.value)} required>
+        <S.Select value={raca} id="raca" onChange={e => setRaca(e.target.value)} required>
         <option value="" hidden>-</option>
           <option value="Androide">Androide</option>
           <option value="Animal">Animal</option>
@@ -62,13 +71,13 @@ export default function Create() {
           <option value="Namekuseijin">Namekuseijin</option>
           <option value="Ogro">Ogro</option>
           <option value="Changeller">Changeller</option>
-          <option value="Namekuseijin">Namekuseijin</option>
+          <option value="Cell">Cell</option>
           <option value="Saiyajin">Saiyajin</option>
           <option value="Tsufurujin">Tsufurujin</option>
         </S.Select>
 
         <S.Label htmlFor="saga">Saga</S.Label>
-        <S.Select id="saga" onChange={e => setSaga(e.target.value)} required>
+        <S.Select value={saga} id="saga" onChange={e => setSaga(e.target.value)} required>
         <option value="" hidden>-</option>
           <option value="Pilaf">Pilaf</option>
           <option value="21º Torneio">21º Torneio</option>
@@ -88,10 +97,14 @@ export default function Create() {
         </S.Select>
 
         <S.Label htmlFor="poder">Poder de Luta</S.Label>
-        <S.Input id="poder" type="number" min="0" max='100' onChange={e => setPoder(e.target.value)} required></S.Input>
+        <S.Input value={poder} id="poder" type="number" min="0" onChange={e => setPoder(e.target.value)} required></S.Input>
         
-        <S.Button>Cadastrar</S.Button>
+        <S.Button>Alterar</S.Button>
       </S.Form>
+      </>
+    
+    )}
     </>
+    
   )
 }
