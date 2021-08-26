@@ -1,5 +1,6 @@
 import * as S from './styled'
 import { Title } from '../../Components/Title/styled'
+import { Area } from '../../Components/Area/styled'
 import { Api } from '../../Api/Api'
 import { useHistory } from 'react-router'
 import {useState} from 'react'
@@ -24,7 +25,7 @@ export default function DeleteAll() {
     <>
       {
         loading ===true ? (<Loading/>):(
-        <>
+        <Area>
         <Title>Deletar Tudo</Title>
   
         <S.Text>Você tem certeza que quer deletar todos os dados, uma vez executado, os dados não podem ser recuperados</S.Text>
@@ -32,7 +33,7 @@ export default function DeleteAll() {
           <S.ButtonCancel onClick={goToHome}>Cancelar</S.ButtonCancel>
           <S.ButtonDelete onClick={clickHandler}>Deletar</S.ButtonDelete>
         </S.ButtonArea>
-      </>
+      </Area>
         )
       }
     </>

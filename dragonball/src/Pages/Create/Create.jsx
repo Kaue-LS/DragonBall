@@ -1,6 +1,7 @@
 import * as S from './styled';
 import { Title } from '../../Components/Title/styled';
 import { useState } from 'react';
+import { Area } from '../../Components/Area/styled';
 import { Api } from '../../Api/Api';
 import { useHistory } from 'react-router-dom';
 
@@ -39,7 +40,7 @@ export default function Create() {
   }
 
   return (
-    <>
+    <Area>
       <Title>Criar um novo personagem</Title>
 
       <S.Form onSubmit={submitHandler}>
@@ -92,6 +93,6 @@ export default function Create() {
         
         <S.Button>Cadastrar</S.Button>
       </S.Form>
-    </>
+    </Area>
   )
 }

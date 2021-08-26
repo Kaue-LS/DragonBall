@@ -1,5 +1,6 @@
 import * as S from './styled';
 import { Title } from '../../Components/Title/styled';
+import { Area } from '../../Components/Area/styled';
 import { useState } from 'react';
 import { Api } from '../../Api/Api';
 import { useHistory } from 'react-router-dom';
@@ -47,7 +48,7 @@ export default function UpdateOne(props) {
     {loading===true ?(
             <Loading></Loading>
     ):(
-      <>
+      <Area>
       <Title>Atualizar personagem</Title>
 
       <S.Form onSubmit={submitHandler}>
@@ -101,7 +102,7 @@ export default function UpdateOne(props) {
         
         <S.Button>Alterar</S.Button>
       </S.Form>
-      </>
+      </Area>
     
     )}
     </>

@@ -5,6 +5,7 @@ export const Text= styled(Paragraph)`
     text-align:center;
 `;
 
+
 export const ButtonArea =styled.div`
     display:flex;
     justify-content: space-evenly;

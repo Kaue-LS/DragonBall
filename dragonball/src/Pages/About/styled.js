@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const ImgArea=styled.div`
     
     display: flex;
@@ -7,9 +8,9 @@ export const ImgArea=styled.div`
     align-items:center;
 `;
 export const Img= styled.img`
-    background-color: orange;
-    padding:1rem 0.5rem 4rem 0.5rem;
+    border: 5px solid #e76a24;
     text-align: center;
+    border-radius: 100%;
     justify-content: center;
     align-self: center;
     width: 50%;
@@ -21,10 +22,14 @@ export const Icon= styled.div`
 
     a{
         padding: 5px 2rem;
-        color: orange;
+        color: #800000;       
    
         i{
             font-size: 45px;
+            transition:200ms;
+            &:hover{
+                font-size: 50px;
+        }
         }
     }
 

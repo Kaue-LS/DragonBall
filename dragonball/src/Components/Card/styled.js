@@ -14,6 +14,7 @@ export const CardArea = styled.div`
 
   &:hover {
     margin: 0.8rem;
+    
   }
 `;
 
@@ -24,7 +25,8 @@ export const CardImg = styled.img`
   transition: 200ms;
   border: 1px solid black;
   &:hover{
-   
+    width: 11rem;
+  height: 11rem;
   }
 `;
 

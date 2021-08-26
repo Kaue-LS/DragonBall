@@ -8,7 +8,8 @@ export const ThemeButton =styled.i`
     cursor: pointer;
     position: fixed;
     bottom: calc(100vh- 90vh);    
-    right: 2vw;
+    top:20vh;
+    right: 3vw;
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
     transform: 200ms;
 

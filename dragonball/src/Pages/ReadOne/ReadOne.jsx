@@ -25,9 +25,9 @@ export default function ReadOne(props) {
     }
 
     return (
-        <>
+        <S.Card>
+        
             <Title>{item.name}</Title>
-            <S.Card>
                 <S.ImgBlock>
                     <S.Img src={item.url} alt='Personagem'/>
                 </S.ImgBlock>
@@ -45,6 +45,6 @@ export default function ReadOne(props) {
             <S.ButtonEdit onClick={updateHandler}>Editar</S.ButtonEdit>
         </S.ButtonArea>
             </S.Card>
-        </>
+        
     )
 }
