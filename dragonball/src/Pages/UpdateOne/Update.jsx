@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 import Loading from '../../Components/Loading/Loading'
 export default function UpdateOne(props) {
   const state = props.location.state;
-
+  console.log(props.location.state)
   const [name, setName] = useState(state.name);
   const [url, setUrl] = useState(state.url);
   const [raca, setRaca] = useState(state.raca);

@@ -8,7 +8,8 @@ export default function ReadAll() {
 
   useEffect(() => {
     async function fetchApi() {
-      let response = await Api.buildApiGetRequest(Api.readAllUrl()).catch(
+      let response = await Api.buildApiGetRequest(Api.readAllUrl())
+      .catch(
         (e) => {
           console.error(
             'Erro ao tentar recuperar o item do banco de dados: ',
